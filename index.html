@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Canvas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .button-container {
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #game-canvas {
+            margin: 20px auto;
+            width: 800px;
+            height: 533px;
+            background-color: #000;
+            border: 2px solid #181818;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Choose Your Game</h1>
+    <div class="button-container">
+        <button onclick="loadGame('https://f.kbhgames.com/emujs/play.php?c=gba&f=PokemonQuetzalAlpha6v9.gba')">Game 1</button>
+        <button onclick="loadGame('https://f.kbhgames.com/emujs/play.php?c=gba&f=sword-and-shield-ultimate-plus101.gba')">Game 2</button>
+        <button onclick="loadGame('https://f.kbhgames.com/emujs/play.php?c=gba&f=radicalred%204.1.gba')">Game 3</button>
+    </div>
+
+    <div id="game-canvas">
+        <p>Select a game to play</p>
+    </div>
+
+    <script>
+        function loadGame(gameUrl) {
+            const gameCanvas = document.getElementById('game-canvas');
+            gameCanvas.innerHTML = `<iframe src="${gameUrl}" allowfullscreen="allowfullscreen" scrolling="no"></iframe>`;
+        }
+    </script>
+
+</body>
+</html>
